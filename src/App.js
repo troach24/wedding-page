@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
-import ring from './assets/ring-crop.png';
+import ringBride from './assets/ring-bride.png';
+import ringGroom from './assets/ring-groom.png';
 import './App.css';
 import * as Journey from './journey';
 
@@ -8,8 +9,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className='ring-container'>
-          <img src={ring} className="App-logo" alt="logo" Style="margin-right: -175px;" />
-          <img src={ring} className="App-logo-right" alt="logo" />
+          <img src={ringGroom} className="App-logo" alt="logo" Style="margin-right: -175px;" />
+          <img src={ringBride} className="App-logo-right" alt="logo" />
         </div>
         <br />
         <button type="button" className="btn btn-dark" onClick={signupRequest}>Subscribe to Wedding Updates</button>
