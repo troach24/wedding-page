@@ -1,6 +1,6 @@
 const BASE_URL = "https://alex-y-travis-testing.poweredbyjourney.com";
 
-async function get() {
+export async function get() {
     let signupRequest = await fetch(`${BASE_URL}/subscribe`, {
         headers: {
             "Authorization": process.env.TOKEN,
@@ -13,6 +13,6 @@ async function get() {
     console.log(signupRequest);
 }
 
-module.exports = {
-    get: get
-}
+// module.exports = {
+//     get: get
+// }
