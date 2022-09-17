@@ -10,3 +10,12 @@ body {
 code {
   font-family: 'Trend Sans Five';
 }
+
+ring-container {
+  display: flex;
+  flex-direction: row;
+}
+
+ring-wrap {
+  margin-right: -175px;
+}

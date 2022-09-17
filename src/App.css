@@ -7,9 +7,17 @@
   pointer-events: none;
 }
 
+.App-logo-right {
+  height: 40vmin;
+  pointer-events: none;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
+  }
+  .App-logo-right {
+    animation: App-logo-spin-left infinite 20s linear;
   }
 }
 
@@ -35,5 +43,14 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes App-logo-spin-left {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
   }
 }
