@@ -32,9 +32,14 @@ async function submitForm(name, email, phone) {
 
 function App() {
   const [showModal, setShowModal] = useState(false);
+  const [showMap, setShowMap] = useState(false);
 
   function showSignupForm() {
     setShowModal(!showModal);
+  }
+  
+  function mapLink() {
+    setShowMap(!showMap);
   }
 
   function openPDF() {
@@ -42,7 +47,8 @@ function App() {
   }
 
   function openMap() {
-    window.open('./alex-y-travis-wedding-map.jpg');
+    // window.open('./alex-y-travis-wedding-map.jpg');
+    window.open('./alex-y-travis-wedding-map.jpg', '_blank', 'noopener,noreferrer');
   }
 
 
@@ -71,7 +77,7 @@ function App() {
         <br />
         <button type="button" className="btn btn-dark" onClick={openPDF}>Download Wedding Guide PDF</button>
         <br />
-        <button type="button" className="btn btn-dark" onClick={openMap}>Download Activity Map</button>
+        {/* <button type="button" className="btn btn-dark" onClick={() => openMap()}>Download Activity Map</button> */}
       </header>
     </div>
   );
