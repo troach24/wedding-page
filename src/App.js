@@ -38,7 +38,11 @@ function App() {
   }
 
   function openPDF() {
-    window.open('./sample.pdf');
+    window.open('./alex-y-travis-wedding-guide.pdf');
+  }
+
+  function openMap() {
+    window.open('./alex-y-travis-wedding-map.jpg');
   }
 
 
@@ -48,7 +52,14 @@ function App() {
         <div className='ring-container'>
           {/* <img src={ringGroom} className="App-logo" alt="logo" Style="margin-right: -175px;" />
           <img src={ringBride} className="App-logo-right" alt="logo" /> */}
-          <img className="mask mask-circle" src="./t-a.jpg" alt='main' />
+          {/* <img className="mask mask-circle" src="./t-a.jpg" alt='main' /> */}
+          <img className="mask mask-circle" src="./t-a2.png" alt='main' />
+          {/* <img className="mask mask-circle" src="./TRAVIS_ALEX-11.png" alt='main' /> */}
+          {/* <img className="mask mask-circle" src="./TRAVIS_ALEX-22.png" alt='main' /> */}
+          {/* <img className="mask mask-circle" src="./TRAVIS_ALEX-30.png" alt='main' /> */}
+          {/* <img className="mask mask-circle" src="./TRAVIS_ALEX-31.png" alt='main' /> */}
+          {/* <img className="mask mask-circle" src="./TRAVIS_ALEX-35.png" alt='main' /> */}
+          {/* <img className="mask mask-circle" src="./TRAVIS_ALEX-84.png" alt='main' /> */}
         </div>
         <br />
         <button type="button" className="btn btn-dark" onClick={showSignupForm}>Subscribe to Wedding Updates</button>
@@ -58,7 +69,9 @@ function App() {
           <button type="button" className="btn btn-dark">Visit Our Official Wedding Site</button>
         </a>
         <br />
-        <button type="button" className="btn btn-dark" onClick={openPDF}>Download Wedding Guide (PDF)</button>
+        <button type="button" className="btn btn-dark" onClick={openPDF}>View/Download Wedding Guide PDF</button>
+        <br />
+        <button type="button" className="btn btn-dark" onClick={openPDF}>View/Download Map</button>
       </header>
     </div>
   );
