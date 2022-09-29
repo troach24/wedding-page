@@ -69,9 +69,9 @@ function App() {
           <button type="button" className="btn btn-dark">Visit Our Official Wedding Site</button>
         </a>
         <br />
-        <button type="button" className="btn btn-dark" onClick={openPDF}>View/Download Wedding Guide PDF</button>
+        <button type="button" className="btn btn-dark" onClick={openPDF}>Download Wedding Guide PDF</button>
         <br />
-        <button type="button" className="btn btn-dark" onClick={openPDF}>View/Download Map</button>
+        <button type="button" className="btn btn-dark" onClick={openPDF}>Download Activity Map</button>
       </header>
     </div>
   );
