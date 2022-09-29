@@ -71,7 +71,7 @@ function App() {
         <br />
         <button type="button" className="btn btn-dark" onClick={openPDF}>Download Wedding Guide PDF</button>
         <br />
-        <button type="button" className="btn btn-dark" onClick={openPDF}>Download Activity Map</button>
+        <button type="button" className="btn btn-dark" onClick={openMap}>Download Activity Map</button>
       </header>
     </div>
   );
