@@ -1,14 +1,19 @@
-// import logo from './logo.svg';
-import ringBride from './assets/ring-bride.png';
-import ringGroom from './assets/ring-groom.png';
 import './App.css';
 import * as Journey from './journey';
 import { useState } from 'react';
 
-function Form() {
+let signupRequest;
+
+function Form({ showSignupForm, evalSignupResponse }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+  const [signupPending, setShowSignupPending] = useState(false);
+  
+  function toggleSignupPending() {
+    setShowSignupPending(!signupPending);
+  }
+  
   return <div>
     <br />
     <input type="text" value={name} onChange={e=> setName(e.target.value)} placeholder="Name" class="input input-bordered w-full max-w-xs" />
@@ -16,26 +21,52 @@ function Form() {
     <input type="text" value={phone} onChange={e=> setPhone(e.target.value)} placeholder="Phone Number" class="input input-bordered w-full max-w-xs" />
     <br />
     <div>
-      <button class="btn" onClick={() => submitForm(name, email, phone)}>SUBMIT</button>
+      <button
+        className={signupPending ? 'btn loading' : 'btn'}
+        loading={signupPending}
+        onClick={() => {
+          toggleSignupPending();
+          submitForm(name, email, phone, setShowSignupPending, evalSignupResponse);
+          showSignupForm(false)
+        }}
+      >
+        SUBMIT
+      </button>
     </div>
   </div>
 }
 
-async function submitForm(name, email, phone) {
+
+async function submitForm(name, email, phone, showLoading, response) {
   console.log('sending signup request..');
-  await Journey.sendSubscriptionRequest({
+  signupRequest = await Journey.sendSubscriptionRequest({
     name: name,
     email: email,
     phone: phone
   });
+  showLoading();
+  if (!signupRequest.ok) {
+    console.log('signup error');
+    response(false);
+    return response;
+  } else {
+    console.log('signup success');
+    response(true);
+    return response;
+  }
 }
 
 function App() {
   const [showModal, setShowModal] = useState(false);
   const [showMap, setShowMap] = useState(false);
+  const [showSignupResponse, setSignupResponse] = useState(null);
 
   function showSignupForm() {
     setShowModal(!showModal);
+  }
+  
+  function evalSignupResponse() {
+    setSignupResponse(!showSignupResponse);
   }
   
   function mapLink() {
@@ -56,20 +87,30 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className='ring-container'>
-          {/* <img src={ringGroom} className="App-logo" alt="logo" Style="margin-right: -175px;" />
-          <img src={ringBride} className="App-logo-right" alt="logo" /> */}
-          {/* <img className="mask mask-circle" src="./t-a.jpg" alt='main' /> */}
           <img className="mask mask-circle" src="./t-a2.png" alt='main' />
-          {/* <img className="mask mask-circle" src="./TRAVIS_ALEX-11.png" alt='main' /> */}
-          {/* <img className="mask mask-circle" src="./TRAVIS_ALEX-22.png" alt='main' /> */}
-          {/* <img className="mask mask-circle" src="./TRAVIS_ALEX-30.png" alt='main' /> */}
-          {/* <img className="mask mask-circle" src="./TRAVIS_ALEX-31.png" alt='main' /> */}
-          {/* <img className="mask mask-circle" src="./TRAVIS_ALEX-35.png" alt='main' /> */}
-          {/* <img className="mask mask-circle" src="./TRAVIS_ALEX-84.png" alt='main' /> */}
         </div>
         <br />
         <button type="button" className="btn btn-dark" onClick={showSignupForm}>Subscribe to Wedding Updates</button>
-        {showModal ? (<Form />) : (<></>)}
+        {
+          showSignupResponse === true ? (
+            <div className="alert alert-success shadow-sm">
+              <div>
+                <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span>Signup Successful!</span>
+              </div>
+            </div>
+            ) :
+          showSignupResponse === false ? (
+            <div className="alert alert-error shadow-sm">
+              <div>
+                <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span>Signup Error! Please contact Alex & Travis</span>
+              </div>
+            </div>
+          ) :
+          (<></>)
+        }
+        {showModal ? (<Form showSignupForm={showSignupForm} evalSignupResponse={evalSignupResponse} />) : (<></>)}
         <br />
         <a href="https://zola.com/wedding/alex-y-travis" target="_blank" rel="noreferrer">
           <button type="button" className="btn btn-dark">Visit Our Official Wedding Site</button>
