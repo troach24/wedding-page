@@ -45,7 +45,7 @@ async function submitForm(name, email, phone, showLoading, response) {
     phone: phone
   });
   showLoading();
-  if (!signupRequest.ok) {
+  if (signupRequest.ok) {
     console.log('signup error');
     response(false);
     return response;
@@ -90,27 +90,29 @@ function App() {
           <img className="mask mask-circle" src="./t-a2.png" alt='main' />
         </div>
         <br />
-        <button type="button" className="btn btn-dark" onClick={showSignupForm}>Subscribe to Wedding Updates</button>
-        {
-          showSignupResponse === true ? (
-            <div className="alert alert-success shadow-sm">
-              <div>
-                <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                <span>Signup Successful!</span>
+        <div>
+          <button type="button" className="btn btn-dark" onClick={showSignupForm}>Subscribe to Wedding Updates</button>
+          {
+            showSignupResponse === true ? (
+              <div className="alert alert-success shadow-lg mt-4">
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                  <span>Signup Successful!</span>
+                </div>
               </div>
-            </div>
+              ) :
+            showSignupResponse === false ? (
+              <div className="alert alert-error shadow-lg mt-4">
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                  <span>Signup Error! Please contact Alex & Travis</span>
+                </div>
+              </div>
             ) :
-          showSignupResponse === false ? (
-            <div className="alert alert-error shadow-sm">
-              <div>
-                <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                <span>Signup Error! Please contact Alex & Travis</span>
-              </div>
-            </div>
-          ) :
-          (<></>)
-        }
-        {showModal ? (<Form showSignupForm={showSignupForm} evalSignupResponse={evalSignupResponse} />) : (<></>)}
+            (<></>)
+          }
+          {showModal ? (<Form showSignupForm={showSignupForm} evalSignupResponse={evalSignupResponse} />) : (<></>)}
+        </div>
         <br />
         <a href="https://zola.com/wedding/alex-y-travis" target="_blank" rel="noreferrer">
           <button type="button" className="btn btn-dark">Visit Our Official Wedding Site</button>
