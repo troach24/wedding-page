@@ -90,8 +90,12 @@ function App() {
           <img className="mask mask-circle" src="./t-a2.png" alt='main' />
         </div>
         <br />
+        <a href="https://zola.com/wedding/alex-y-travis" target="_blank" rel="noreferrer">
+          <button type="button" className="btn btn-dark btn-custom-width">Visit Our Official Wedding Site</button>
+        </a>
+        <br />
         <div>
-          <button type="button" className="btn btn-dark" onClick={showSignupForm}>Subscribe to Wedding Updates</button>
+          <button type="button" className="btn btn-dark btn-custom-width" onClick={showSignupForm}>Subscribe to Wedding Updates</button>
           {
             showSignupResponse === true ? (
               <div className="alert alert-success shadow-lg mt-4">
@@ -114,11 +118,11 @@ function App() {
           {showModal ? (<Form showSignupForm={showSignupForm} evalSignupResponse={evalSignupResponse} />) : (<></>)}
         </div>
         <br />
-        <a href="https://zola.com/wedding/alex-y-travis" target="_blank" rel="noreferrer">
-          <button type="button" className="btn btn-dark">Visit Our Official Wedding Site</button>
+        <a href="https://zola.com/wedding/alex-y-travis/rsvp" target="_blank" rel="noreferrer">
+          <button type="button" className="btn btn-dark btn-custom-width">RSVP - Direct Link</button>
         </a>
         <br />
-        <button type="button" className="btn btn-dark" onClick={openPDF}>Download Wedding Guide PDF</button>
+        <button type="button" className="btn btn-dark btn-custom-width" onClick={openPDF}>Download Wedding Guide PDF</button>
         <br />
         {/* <button type="button" className="btn btn-dark" onClick={() => openMap()}>Download Activity Map</button> */}
       </header>

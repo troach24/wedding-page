@@ -24,3 +24,7 @@ ring-container {
 ring-wrap {
   margin-right: -80% !important;
 }
+
+.btn-custom-width {
+  width: 20rem;
+}
