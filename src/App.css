@@ -37,6 +37,18 @@
   color: #61dafb;
 }
 
+.button-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-flow: wrap;
+  width: 50%;
+}
+
+button {
+  margin-top: 20px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

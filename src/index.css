@@ -16,9 +16,10 @@ code {
   font-family: 'Trend Sans Five';
 }
 
-ring-container {
+.ring-container {
   display: flex;
   flex-direction: row;
+  padding-bottom: 10px;
 }
 
 ring-wrap {

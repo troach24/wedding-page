@@ -23,7 +23,7 @@ function Form({ showSignupForm, evalSignupResponse }) {
     <div>
       <button
         className={signupPending ? 'btn loading' : 'btn'}
-        loading={signupPending}
+        loading={signupPending ? true : undefined}
         onClick={() => {
           toggleSignupPending();
           submitForm(name, email, phone, setShowSignupPending, evalSignupResponse);
@@ -89,42 +89,42 @@ function App() {
         <div className='ring-container'>
           <img className="mask mask-circle" src="./t-a2.png" alt='main' />
         </div>
-        <br />
-        <a href="https://zola.com/wedding/alex-y-travis" target="_blank" rel="noreferrer">
-          <button type="button" className="btn btn-dark btn-custom-width">Visit Our Official Wedding Site</button>
-        </a>
-        <br />
-        <div>
-          <button type="button" className="btn btn-dark btn-custom-width" onClick={showSignupForm}>Subscribe to Wedding Updates</button>
-          {
-            showSignupResponse === true ? (
-              <div className="alert alert-success shadow-lg mt-4">
-                <div>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                  <span>Signup Successful! Stay tuned...</span>
+        <div className='button-group'>
+          <a href="https://zola.com/wedding/alex-y-travis" target="_blank" rel="noreferrer">
+            <button type="button" className="btn btn-dark btn-custom-width">Visit Our Official Wedding Site</button>
+          </a>
+          <div>
+            <button type="button" className="btn btn-dark btn-custom-width" onClick={showSignupForm}>Subscribe to Wedding Updates</button>
+            {
+              showSignupResponse === true ? (
+                <div className="alert alert-success shadow-lg mt-4">
+                  <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <span>Signup Successful! Stay tuned...</span>
+                  </div>
                 </div>
-              </div>
+                ) :
+              showSignupResponse === false ? (
+                <div className="alert alert-error shadow-lg mt-4">
+                  <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <span>Signup Error! Please contact Alex & Travis</span>
+                  </div>
+                </div>
               ) :
-            showSignupResponse === false ? (
-              <div className="alert alert-error shadow-lg mt-4">
-                <div>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                  <span>Signup Error! Please contact Alex & Travis</span>
-                </div>
-              </div>
-            ) :
-            (<></>)
-          }
-          {showModal ? (<Form showSignupForm={showSignupForm} evalSignupResponse={evalSignupResponse} />) : (<></>)}
+              (<></>)
+            }
+            {showModal ? (<Form showSignupForm={showSignupForm} evalSignupResponse={evalSignupResponse} />) : (<></>)}
+          </div>
+          <a href="https://zola.com/wedding/alex-y-travis/rsvp" target="_blank" rel="noreferrer">
+            <button type="button" className="btn btn-dark btn-custom-width">RSVP - Direct Link</button>
+          </a>
+          <button type="button" className="btn btn-dark btn-custom-width" onClick={openPDF}>Download Wedding Guide</button>
+          <button type="button" className="btn btn-dark btn-custom-width" onClick={() => openMap()}>Download Activity Map</button>
+          <a href="mailto:alexandtravis2023@gmail.com" target="_blank" rel="noreferrer">
+            <button type="button" className="btn btn-dark btn-custom-width">Contact Us</button>
+          </a>
         </div>
-        <br />
-        <a href="https://zola.com/wedding/alex-y-travis/rsvp" target="_blank" rel="noreferrer">
-          <button type="button" className="btn btn-dark btn-custom-width">RSVP - Direct Link</button>
-        </a>
-        <br />
-        <button type="button" className="btn btn-dark btn-custom-width" onClick={openPDF}>Download Wedding Guide PDF</button>
-        <br />
-        {/* <button type="button" className="btn btn-dark" onClick={() => openMap()}>Download Activity Map</button> */}
       </header>
     </div>
   );
