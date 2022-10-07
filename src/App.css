@@ -42,7 +42,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   flex-flow: wrap;
-  width: 50%;
+  max-width: 40%;
 }
 
 button {

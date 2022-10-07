@@ -77,11 +77,12 @@ function App() {
     window.open('./alex-y-travis-wedding-guide.pdf');
   }
 
-  function openMap() {
-    // window.open('./alex-y-travis-wedding-map.jpg');
-    window.open('./alex-y-travis-wedding-map.jpg', '_blank', 'noopener,noreferrer');
+  const openInNewTab = () => {
+    const newWindow = window.open("./alex-y-travis-wedding-map.jpg", '_blank', 'noopener,noreferrer')
+    if (newWindow) newWindow.opener = null
   }
 
+  const onClickUrl = () => openInNewTab();
 
   return (
     <div className="App">
@@ -120,8 +121,7 @@ function App() {
             <button type="button" className="btn btn-dark btn-custom-width">RSVP - Direct Link</button>
           </a>
           <button type="button" className="btn btn-dark btn-custom-width" onClick={openPDF}>Download Wedding Guide</button>
-          {/* <button type="button" className="btn btn-dark btn-custom-width" onClick={openMap}>Download Activity Map</button> */}
-          {/* <button type="button" className="btn btn-dark btn-custom-width" onClick={() => openMap()}>Download Activity Map</button> */}
+          <button type="button" className="btn btn-dark btn-custom-width" onClick={onClickUrl}>Download Activity Map</button>
           <a href="mailto:alexandtravis2023@gmail.com" target="_blank" rel="noreferrer">
             <button type="button" className="btn btn-dark btn-custom-width">Contact Us</button>
           </a>
