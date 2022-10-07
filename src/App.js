@@ -120,7 +120,8 @@ function App() {
             <button type="button" className="btn btn-dark btn-custom-width">RSVP - Direct Link</button>
           </a>
           <button type="button" className="btn btn-dark btn-custom-width" onClick={openPDF}>Download Wedding Guide</button>
-          <button type="button" className="btn btn-dark btn-custom-width" onClick={() => openMap()}>Download Activity Map</button>
+          {/* <button type="button" className="btn btn-dark btn-custom-width" onClick={openMap}>Download Activity Map</button> */}
+          {/* <button type="button" className="btn btn-dark btn-custom-width" onClick={() => openMap()}>Download Activity Map</button> */}
           <a href="mailto:alexandtravis2023@gmail.com" target="_blank" rel="noreferrer">
             <button type="button" className="btn btn-dark btn-custom-width">Contact Us</button>
           </a>
