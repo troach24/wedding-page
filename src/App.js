@@ -3,6 +3,7 @@ import * as Journey from './journey';
 import { useState } from 'react';
 
 let signupRequest;
+let analyticsRequest;
 
 function Form({ showSignupForm, evalSignupResponse }) {
   const [name, setName] = useState('');
@@ -56,12 +57,37 @@ async function submitForm(name, email, phone, showLoading, response) {
   }
 }
 
+async function sendAnalytics(button) {
+  console.log('sending analytics..');
+  analyticsRequest = await Journey.updateAnalytics({
+    button_pressed: button
+  });
+  if (analyticsRequest.ok) {
+    console.log('analytics error');
+  } else {
+    console.log('analytics success');
+  }
+}
+
 function App() {
   const [showModal, setShowModal] = useState(false);
   const [showMap, setShowMap] = useState(false);
   const [showSignupResponse, setSignupResponse] = useState(null);
+  
+  function weddingSiteClick() {
+    sendAnalytics('website');
+    window.open("https://zola.com/wedding/alex-y-travis", "_blank", 'noopener,noreferrer');
+  }
+
+  // <field name="website" label="Website Button" type="integer" />
+  //       <field name="subscribe" label="Subscribe Button" type="integer" />
+  //       <field name="rsvp" label="RSVP Button" type="integer" />
+  //       <field name="wedding_guide" label="Wedding Guide Button" type="integer" />
+  //       <field name="map" label="Map Button" type="integer" />
+  //       <field name="contact" label="Contact Button" type="integer" />
 
   function showSignupForm() {
+    sendAnalytics('subscribe');
     setShowModal(!showModal);
   }
   
@@ -73,11 +99,24 @@ function App() {
     setShowMap(!showMap);
   }
 
-  function openPDF() {
-    window.open('./alex-y-travis-wedding-guide.pdf');
+  function openRSVP() {
+    sendAnalytics('rsvp');
+    window.open('https://zola.com/wedding/alex-y-travis/rsvp', "_blank", 'noopener,noreferrer');
   }
 
+  function openContact() {
+    sendAnalytics('contact');
+    window.open('mailto:alexandtravis2023@gmail.com', "_blank", 'noopener,noreferrer');
+    // window.location.href = "mailto:alexandtravis2023@gmail.com";
+  }
+  
+  function openPDF() {
+    sendAnalytics('wedding_guide');
+    window.open('./alex-y-travis-wedding-guide.pdf');
+  }
+  
   const openInNewTab = () => {
+    sendAnalytics('map');
     const newWindow = window.open("./alex-y-travis-wedding-map.jpg", '_blank', 'noopener,noreferrer')
     if (newWindow) newWindow.opener = null
   }
@@ -91,9 +130,7 @@ function App() {
           <img className="mask mask-circle" src="./t-a2.png" alt='main' />
         </div>
         <div className='button-group'>
-          <a href="https://zola.com/wedding/alex-y-travis" target="_blank" rel="noreferrer">
-            <button type="button" className="btn btn-dark btn-custom-width">Visit Our Official Wedding Site</button>
-          </a>
+          <button type="button" className="btn btn-dark btn-custom-width" onClick={weddingSiteClick}>Visit Our Official Wedding Site</button>
           <div>
             <button type="button" className="btn btn-dark btn-custom-width" onClick={showSignupForm}>Subscribe to Wedding Updates</button>
             {
@@ -117,14 +154,14 @@ function App() {
             }
             {showModal ? (<Form showSignupForm={showSignupForm} evalSignupResponse={evalSignupResponse} />) : (<></>)}
           </div>
-          <a href="https://zola.com/wedding/alex-y-travis/rsvp" target="_blank" rel="noreferrer">
-            <button type="button" className="btn btn-dark btn-custom-width">RSVP - Direct Link</button>
-          </a>
+          {/* <a href="https://zola.com/wedding/alex-y-travis/rsvp" target="_blank" rel="noreferrer">
+          </a> */}
+          <button type="button" className="btn btn-dark btn-custom-width" onClick={openRSVP}>RSVP - Direct Link</button>
           <button type="button" className="btn btn-dark btn-custom-width" onClick={openPDF}>Download Wedding Guide</button>
           {/* <button type="button" className="btn btn-dark btn-custom-width" onClick={onClickUrl}>Download Activity Map</button> */}
-          <a href="mailto:alexandtravis2023@gmail.com" target="_blank" rel="noreferrer">
-            <button type="button" className="btn btn-dark btn-custom-width">Contact Us</button>
-          </a>
+          {/* <a href="mailto:alexandtravis2023@gmail.com" target="_blank" rel="noreferrer">
+          </a> */}
+          <button type="button" className="btn btn-dark btn-custom-width" onClick={openContact}>Contact Us</button>
         </div>
       </header>
     </div>
