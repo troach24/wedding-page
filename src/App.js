@@ -158,9 +158,9 @@ function App() {
           </a> */}
           <button type="button" className="btn btn-dark btn-custom-width" onClick={openRSVP}>RSVP - Direct Link</button>
           <button type="button" className="btn btn-dark btn-custom-width" onClick={openPDF}>Download Wedding Guide</button>
-          <a href="./alex-y-travis-wedding-map.jpeg" download>
+          {/* <a href="./alex-y-travis-wedding-map.jpeg" download>
             <button type="button" className="btn btn-dark btn-custom-width" onClick={onClickUrl}>Download Activity Map</button>
-          </a>
+          </a> */}
           {/* <a href="mailto:alexandtravis2023@gmail.com" target="_blank" rel="noreferrer">
           </a> */}
           <button type="button" className="btn btn-dark btn-custom-width" onClick={openContact}>Contact Us</button>
