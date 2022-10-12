@@ -158,11 +158,11 @@ function App() {
           <button type="button" className="btn btn-dark btn-custom-width" onClick={openPDF}>Download Wedding Guide</button>
           
           {/* <!-- The button to open modal --> */}
-          <label type="button" htmlFor="map-modal" className="btn btn-dark btn-custom-width modal-button" onClick={openedModal}>Download Activity Map</label>
+          <label type="button" htmlFor="map-modal" className="btn btn-dark btn-custom-width" onClick={openedModal}>View Activity Map</label>
 
           <input type="checkbox" id="map-modal" className="modal-toggle" />
           <div className="modal">
-            <div className="modal-box relative">
+            <div className="modal-box w-11/12 max-w-4xl">
               <label htmlFor="map-modal" className="btn btn-sm btn-circle absolute right-2 top-2">x</label>
               <img alt='alt' src='./alex-y-travis-wedding-map.jpeg' />
             </div>
