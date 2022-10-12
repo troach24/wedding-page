@@ -37,6 +37,22 @@ function Form({ showSignupForm, evalSignupResponse }) {
   </div>
 }
 
+function ModalMap() {
+  return <div>
+    {/* <label htmlFor="modal-map" className="btn modal-button">open modal</label> */}
+    <input type="checkbox" id="modal-map" className="modal-toggle" />
+    <div className="modal">
+      <div className="modal-box">
+        <h3 className="font-bold text-lg">Congratulations random Internet user!</h3>
+        <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+        <div className="modal-action">
+          <label htmlFor="modal-map" className="btn">Yay!</label>
+        </div>
+      </div>
+    </div>
+    </div>
+}
+
 
 async function submitForm(name, email, phone, showLoading, response) {
   console.log('sending signup request..');
@@ -79,13 +95,6 @@ function App() {
     window.open("https://zola.com/wedding/alex-y-travis", "_blank", 'noopener,noreferrer');
   }
 
-  // <field name="website" label="Website Button" type="integer" />
-  //       <field name="subscribe" label="Subscribe Button" type="integer" />
-  //       <field name="rsvp" label="RSVP Button" type="integer" />
-  //       <field name="wedding_guide" label="Wedding Guide Button" type="integer" />
-  //       <field name="map" label="Map Button" type="integer" />
-  //       <field name="contact" label="Contact Button" type="integer" />
-
   function showSignupForm() {
     sendAnalytics('subscribe');
     setShowModal(!showModal);
@@ -94,34 +103,25 @@ function App() {
   function evalSignupResponse() {
     setSignupResponse(!showSignupResponse);
   }
-  
-  function mapLink() {
-    setShowMap(!showMap);
-  }
 
   function openRSVP() {
     sendAnalytics('rsvp');
     window.open('https://zola.com/wedding/alex-y-travis/rsvp', "_blank", 'noopener,noreferrer');
   }
+  
+  function openedModal() {
+    sendAnalytics('map');
+  }
 
   function openContact() {
     sendAnalytics('contact');
     window.open('mailto:alexandtravis2023@gmail.com', "_blank", 'noopener,noreferrer');
-    // window.location.href = "mailto:alexandtravis2023@gmail.com";
   }
   
   function openPDF() {
     sendAnalytics('wedding_guide');
     window.open('./alex-y-travis-wedding-guide.pdf');
   }
-  
-  const openInNewTab = () => {
-    sendAnalytics('map');
-    const newWindow = window.open("./alex-y-travis-wedding-map.jpg", '_blank', 'noopener,noreferrer')
-    if (newWindow) newWindow.opener = null
-  }
-
-  const onClickUrl = () => openInNewTab();
 
   return (
     <div className="App">
@@ -154,15 +154,19 @@ function App() {
             }
             {showModal ? (<Form showSignupForm={showSignupForm} evalSignupResponse={evalSignupResponse} />) : (<></>)}
           </div>
-          {/* <a href="https://zola.com/wedding/alex-y-travis/rsvp" target="_blank" rel="noreferrer">
-          </a> */}
           <button type="button" className="btn btn-dark btn-custom-width" onClick={openRSVP}>RSVP - Direct Link</button>
           <button type="button" className="btn btn-dark btn-custom-width" onClick={openPDF}>Download Wedding Guide</button>
-          {/* <a href="./alex-y-travis-wedding-map.jpeg" download>
-            <button type="button" className="btn btn-dark btn-custom-width" onClick={onClickUrl}>Download Activity Map</button>
-          </a> */}
-          {/* <a href="mailto:alexandtravis2023@gmail.com" target="_blank" rel="noreferrer">
-          </a> */}
+          
+          {/* <!-- The button to open modal --> */}
+          <label type="button" htmlFor="map-modal" className="btn btn-dark btn-custom-width modal-button" onClick={openedModal}>Download Activity Map</label>
+
+          <input type="checkbox" id="map-modal" className="modal-toggle" />
+          <div className="modal">
+            <div className="modal-box relative">
+              <label htmlFor="map-modal" className="btn btn-sm btn-circle absolute right-2 top-2">x</label>
+              <img alt='alt' src='./alex-y-travis-wedding-map.jpeg' />
+            </div>
+          </div>
           <button type="button" className="btn btn-dark btn-custom-width" onClick={openContact}>Contact Us</button>
         </div>
       </header>
