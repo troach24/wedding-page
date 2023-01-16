@@ -13,14 +13,30 @@
     </div>
 </body>
 <style>
-    .timer-wrapper {
-        text-align: center;
+    @media (min-width: 700px) {
+        .timer-wrapper {
+            text-align: center;
+        }
+    
+        .ticker {
+            font-family: 'Rubik Dirt', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 0;
+        }
     }
 
-    .ticker {
-        font-family: 'Rubik Dirt', sans-serif;
-        font-size: 3rem;
+    @media (max-width: 699px) {
+        .timer-wrapper {
+            text-align: center;
+        }
+    
+        .ticker {
+            font-family: 'Rubik Dirt', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 0;
+        }
     }
+    
 </style>
 <script>
     // Set the date we're counting down to

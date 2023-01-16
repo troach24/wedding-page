@@ -15,10 +15,10 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <img class="img-hero" width="500px" src="https://run-testing-us.journeyapps.com/media/W1siZiIsIjIwMjMvMDEvMTUvMTcvMDgvNTMvYmQ5YjdiNDktNzBhYy00ODNiLTlmMGUtZDljZGU4OWEzMjc5L1RSQVZJU19BTEVYLTUxLXdlYi5wbmciXV0/TRAVIS_ALEX-51-web.png?sha=e14351b69080bdb7" />
-        </header>
-        <iframe src="https://www.alex-y-travis.com/timer.html" style="width: 100%;" frameborder="0"></iframe>
+        <div class="img-container">
+            <img class="img-hero" src="https://run-testing-us.journeyapps.com/media/W1siZiIsIjIwMjMvMDEvMTUvMTcvMDgvNTMvYmQ5YjdiNDktNzBhYy00ODNiLTlmMGUtZDljZGU4OWEzMjc5L1RSQVZJU19BTEVYLTUxLXdlYi5wbmciXV0/TRAVIS_ALEX-51-web.png?sha=e14351b69080bdb7" />
+        </div>
+        <iframe class="ticker" src="http://localhost:3000/timer.html" frameborder="0"></iframe>
         <div class="memo-text">
             <p>Dear Family &amp; Friends,</p>
             <p>
@@ -46,27 +46,56 @@
         </div>
     </div>
     <style>
-        body {
-            margin: 0cm 1cm 1cm 2cm;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: rgb(81, 108, 28);
+        @media (min-width: 700px) {
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: rgb(233, 223, 223);
+            }
+            
+            .container {
+                width: 65%;
+                background-color: rgb(233, 223, 223);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-left: auto;
+                margin-right: auto;
+                padding-left: 45px;
+                padding-right: 45px;
+            }
         }
 
-        .container {
-            width: 70%;
-            background-color: rgb(233, 223, 223);
+        @media (max-width: 699px) {
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                /* background-color: rgb(81, 108, 28); */
+                background-color: rgb(233, 223, 223);
+            }
+            
+            .container {
+                width: 90%;
+                background-color: rgb(233, 223, 223);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        .ticker {
+            height: fit-content;
+        }
+
+        .img-container {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 25px;
-            padding-right: 25px;
+            justify-content: center;
         }
 
         .img-hero {
             border-radius: 50%;
             padding-top: 10px;
+            width: 75%;
         }
 
         .title-text {
@@ -81,13 +110,8 @@
             font-family: 'Zen Kaku Gothic New', sans-serif;
         }
 
-        .ticker {
-            font-family: 'Rubik Dirt', sans-serif;
-            font-size: 5rem;
-        }
-
         .link-text {
-            font-size: 1.5rem;
+            font-size: 1rem;
             font-family: 'gGantiTahun', sans-serif;
             color: darkgreen;
         }
@@ -103,6 +127,7 @@
             font-family: 'Chickenic', sans-serif;
             text-align: center;
         }
+
     </style>
     <script>
         // Set the date we're counting down to
