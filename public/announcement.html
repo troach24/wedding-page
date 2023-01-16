@@ -45,5 +45,93 @@
             </p>
         </div>
     </div>
+    <style>
+        body {
+            margin: 0cm 1cm 1cm 2cm;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(81, 108, 28);
+        }
+
+        .container {
+            width: 70%;
+            background-color: rgb(233, 223, 223);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        .img-hero {
+            border-radius: 50%;
+            padding-top: 10px;
+        }
+
+        .title-text {
+            font-size: larger;
+            text-align: center;
+        }
+
+        .memo-text {
+            width: 75%;
+            font-size: larger;
+            text-align: left;
+            font-family: 'Zen Kaku Gothic New', sans-serif;
+        }
+
+        .ticker {
+            font-family: 'Rubik Dirt', sans-serif;
+            font-size: 5rem;
+        }
+
+        .link-text {
+            font-size: 1.5rem;
+            font-family: 'gGantiTahun', sans-serif;
+            color: darkgreen;
+        }
+
+        .section-label {
+            font-size: 1.2rem;
+            font-family: 'Chickenic', sans-serif;
+            text-align: center;
+        }
+
+        .signature {
+            font-size: 1.7rem;
+            font-family: 'Chickenic', sans-serif;
+            text-align: center;
+        }
+    </style>
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("Feb 24, 2023 16:00:00").getTime();
+
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+
+        // Get today's date and time
+        var now = new Date().getTime();
+            
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+            
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+        // Output the result in an element with id="demo"
+        document.getElementById("demo").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+            
+        // If the count down is over, write some text 
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "EXPIRED";
+        }
+        }, 1000);
+    </script>
 </body>
 </html>
