@@ -164,7 +164,7 @@ function App() {
           <div className="modal">
             <div className="modal-box w-11/12 max-w-4xl">
               <label htmlFor="map-modal" className="btn btn-sm btn-circle absolute right-2 top-2">x</label>
-              <img alt='alt' src='./alex-y-travis-wedding-map.jpeg' />
+              <img alt='alt' src='./alex-y-travis-wedding-map.png' />
             </div>
           </div>
           <button type="button" className="btn btn-dark btn-custom-width" onClick={openContact}>Contact Us</button>
