@@ -1,3 +1,6 @@
+![ea](https://github.com/troach24/wedding-page/assets/33434059/57b49354-eec5-4239-b3c1-acf621cb299b)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
