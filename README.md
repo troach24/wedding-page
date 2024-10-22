@@ -73,11 +73,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 ![trophy](https://github.com/user-attachments/assets/59021fd9-f1ca-4e35-b3b6-71e15c539f73)
-
-
-<img width="578" alt="Screenshot 2024-10-21 at 21 25 55" src="https://github.com/user-attachments/assets/73376835-5107-49ea-bf5d-a463b6443c8d">
-
-
-
-
-![ea](https://github.com/troach24/wedding-page/assets/33434059/57b49354-eec5-4239-b3c1-acf621cb299b)
