@@ -75,13 +75,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ![trophy](https://github.com/user-attachments/assets/59021fd9-f1ca-4e35-b3b6-71e15c539f73)
 
 
-
-
-![Hot-Selling-Gold-Grillz-Bling-Top-Bottom-Teeth-Combo-High-quality-GANGSTER-Grillz-Easy-to-wear jpg_640x640-590141412](https://github.com/user-attachments/assets/2d22f82a-621e-4e00-b8e6-280e1e9aa424)
-
-
-
-
+<img width="578" alt="Screenshot 2024-10-21 at 21 25 55" src="https://github.com/user-attachments/assets/73376835-5107-49ea-bf5d-a463b6443c8d">
 
 
 
